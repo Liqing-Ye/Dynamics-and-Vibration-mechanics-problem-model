@@ -2,7 +2,7 @@
 % damping factors (c/cc) named as cR
 % transmissibility (Tm) named as Tm
 
-wR=0:0.1:5;
+wR=0:0.01:5;
 cR=[0.2,0.4,0.6,0.8,1.0];
 
 [wRrows,wRcolumns]=size(wR);
@@ -14,7 +14,7 @@ while cRcolumns>0
     wRcoltmp=wRcolumns;
     while wRcoltmp>0
         wRtmp=wR(wRcoltmp);
-        Tm(cRcolumns,wRcoltmp)=1/(sqrt((1-(wRtmp^2))^2+(2*cRtmp*wRtmp)^2));
+        Tm(cRcolumns,wRcoltmp)=sqrt((1+(2*wRtmp*cRtmp)^2)/((1-wRtmp^2)^2+(2*wRtmp*cRtmp)^2));
         wRcoltmp=wRcoltmp-1;
     end
     

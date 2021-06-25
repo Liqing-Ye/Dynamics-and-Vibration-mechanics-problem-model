@@ -10,7 +10,7 @@ Tm=[0,0];
 fileID1 = fopen('Question2Results.txt','w');
 while cRcolumns>0
     cRtmp=cR(cRcolumns);
-    Tm(cRcolumns)=1/(sqrt((1-(wR^2))^2+(2*cRtmp*wR)^2));
+    Tm(cRcolumns)=sqrt((1+(2*wR*cRtmp)^2)/((1-wR^2)^2+(2*wR*cRtmp)^2));
     if Tm(cRcolumns)<=0.5
         disp("Tm = "+Tm(cRcolumns));
         disp("C/Cc = "+cRtmp);
